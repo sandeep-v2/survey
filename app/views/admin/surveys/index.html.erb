@@ -1,0 +1,25 @@
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Description</th>
+    <th>User</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @admin_surveys.each do |admin_survey| %>
+  <tr>
+    <td><%= admin_survey.title %></td>
+    <td><%= admin_survey.description %></td>
+    <td><%= admin_survey.user_id %></td>
+    <td><%= link_to 'Show', admin_survey %></td>
+    <td><%= link_to 'Edit', edit_admin_survey_path(admin_survey) %></td>
+    <td><%= link_to 'Destroy', admin_survey, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Survey', new_admin_survey_path %>

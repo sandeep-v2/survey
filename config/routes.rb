@@ -1,5 +1,17 @@
 SurveyHub::Application.routes.draw do
+
   devise_for :users
+
+  namespace :admin do
+    resources :dashboard
+    resources :surveys
+  end
+
+  resources :dashboard do
+    member do
+      get 'index'
+    end
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -48,13 +60,9 @@ SurveyHub::Application.routes.draw do
   #     resources :products
   #   end
 
-  namespace :admin do
-    resources :dashboard
-  end
-
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-   root :to => 'admin/dashboard#index'
+   root :to => 'dashboard#index'
 
   # See how all your routes lay out with "rake routes"
 

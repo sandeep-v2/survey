@@ -46,20 +46,21 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="#">SurveyHub</a>
+          <a class="brand" href="#">Survey</a>
           <div class="container nav-collapse">
             <ul class="nav">
-              <li><%= link_to "Users", "/path1"  %></li>
               <li><%= link_to "Surveys", "/path2"  %></li>
+              <%=login_or_logout  %>
             </ul>
           </div><!--/.nav-collapse -->
+
         </div>
       </div>
     </div>
 
     <div class="container">
         <div class="row main-container-row">
-          <div class="span9">
+          <div class="span12">
             <%= bootstrap_flash %>
             <%= yield %>
           </div>
