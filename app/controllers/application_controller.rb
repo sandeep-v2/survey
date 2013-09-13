@@ -23,6 +23,10 @@ class ApplicationController < ActionController::Base
     new_user_session_path
   end
 
+  def get_field_types
+    @field_types = FieldType.all
+  end
+
   protected
   def layout_by_user
     is_admin? ? "admin" : "application"

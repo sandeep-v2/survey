@@ -1,0 +1,25 @@
+<table class="table table-striped">
+  <tr>
+    <th>Name</th>
+    <th>Field type</th>
+    <th>No of choices</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @admin_question_types.each do |admin_question_type| %>
+  <tr>
+    <td><%= admin_question_type.name %></td>
+    <td><%= admin_question_type.field_type_id %></td>
+    <td><%= admin_question_type.no_of_choices %></td>
+    <td><%= link_to 'Show', admin_question_type %></td>
+    <td><%= link_to 'Edit', edit_admin_question_type_path(admin_question_type) %></td>
+    <td><%= link_to 'Destroy', admin_question_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Question type', new_admin_question_type_path %>

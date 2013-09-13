@@ -1,5 +1,11 @@
 SurveyHub::Application.routes.draw do
 
+  namespace :admin do
+    resources :question_types
+  end
+
+  match 'admin/question_types/check_field_optionable/:field_id' => 'admin/question_types#check_field_optionable'
+
   devise_for :users
 
   namespace :admin do

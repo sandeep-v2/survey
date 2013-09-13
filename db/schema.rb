@@ -11,7 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130911113619) do
+ActiveRecord::Schema.define(:version => 20130913085558) do
+
+  create_table "admin_question_types", :force => true do |t|
+    t.string   "name"
+    t.integer  "field_type_id"
+    t.integer  "no_of_choices"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
 
   create_table "admin_surveys", :force => true do |t|
     t.string   "title"
@@ -19,6 +27,13 @@ ActiveRecord::Schema.define(:version => 20130911113619) do
     t.integer  "user_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+  end
+
+  create_table "field_types", :force => true do |t|
+    t.string   "type_name"
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
+    t.boolean  "is_optionable", :default => false
   end
 
   create_table "users", :force => true do |t|

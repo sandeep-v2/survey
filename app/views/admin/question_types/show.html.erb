@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @admin_question_type.name %>
+</p>
+
+<p>
+  <b>Field type:</b>
+  <%= @admin_question_type.field_type_id %>
+</p>
+
+<p>
+  <b>No of choices:</b>
+  <%= @admin_question_type.no_of_choices %>
+</p>
+
+
+<%= link_to 'Edit', edit_admin_question_type_path(@admin_question_type) %> |
+<%= link_to 'Back', admin_question_types_path %>
