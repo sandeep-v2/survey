@@ -1,0 +1,29 @@
+<%= form_for(@admin_question_type) do |f| %>
+  <% if @admin_question_type.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@admin_question_type.errors.count, "error") %> prohibited this admin_question_type from being saved:</h2>
+
+      <ul>
+      <% @admin_question_type.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :field_type_id %><br />
+    <%= f.select :field_type_id, FieldType.all.collect {|f| [ f.type_name.capitalize, f.id ] }, :prompt => 'Select Field Type' %>
+  </div>
+  <div class="field <%=display_class%>" id="no_of_choice">
+    <%= f.label :no_of_choices %><br />
+    <%= f.number_field :no_of_choices %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
